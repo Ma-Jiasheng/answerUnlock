@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Word Unlock 统计</title>
+    <link rel="stylesheet" href="stats.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>今日学习统计</h1>
+      <p class="sub" id="dateText">日期：-</p>
+      <section class="cards">
+        <article class="card">
+          <p>拦截次数</p>
+          <strong id="interceptions">0</strong>
+        </article>
+        <article class="card">
+          <p>答题次数</p>
+          <strong id="attempts">0</strong>
+        </article>
+        <article class="card">
+          <p>正确率</p>
+          <strong id="accuracy">0%</strong>
+        </article>
+      </section>
+      <p class="status" id="status"></p>
+    </main>
+    <script src="stats.js"></script>
+  </body>
+</html>

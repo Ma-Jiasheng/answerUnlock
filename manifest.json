@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "Word Unlock MVP",
+  "description": "达到浏览时长后，答对单词翻译才能继续浏览。",
+  "version": "0.1.0",
+  "permissions": [
+    "alarms",
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "overlay.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "options_page": "options.html",
+  "action": {
+    "default_title": "Word Unlock",
+    "default_popup": "popup.html"
+  }
+}

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Word Unlock Challenge</title>
+    <link rel="stylesheet" href="challenge.css" />
+  </head>
+  <body>
+    <main class="card">
+      <div class="header">
+        <h1>专注挑战</h1>
+        <p class="tip">连续答对指定题数即可解锁浏览器</p>
+      </div>
+      <section class="progress">
+        <div class="progress-item">
+          <span>当前连对</span>
+          <strong id="streak">0</strong>
+        </div>
+        <div class="progress-item">
+          <span>目标连对</span>
+          <strong id="target">0</strong>
+        </div>
+        <div class="progress-item">
+          <span>错题池</span>
+          <strong id="wrongCount">0</strong>
+        </div>
+      </section>
+      <p class="tip">请选择下方英文单词的正确中文意思：</p>
+      <div class="word" id="word">...</div>
+      <div class="options" id="options"></div>
+      <p class="status" id="status"></p>
+    </main>
+    <script src="challenge.js"></script>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Word Unlock</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="panel">
+      <h1>Word Unlock</h1>
+      <p class="hint">到点答题，连对后解锁</p>
+
+      <section class="stat">
+        <div>当前倒计时</div>
+        <strong id="countdown">--:--</strong>
+        <small id="usageText">-</small>
+      </section>
+
+      <label class="label inline" for="pluginEnabled">
+        <input id="pluginEnabled" type="checkbox" />
+        启用插件功能
+      </label>
+
+      <label class="label" for="limitMinutes">倒计时（分钟）</label>
+      <input id="limitMinutes" type="number" min="1" step="1" />
+
+      <label class="label" for="requiredStreak">连续答对题数（N）</label>
+      <input id="requiredStreak" type="number" min="1" step="1" />
+
+      <label class="label" for="selectedBook">词书</label>
+      <select id="selectedBook"></select>
+
+      <label class="label inline" for="resetOnWrong">
+        <input id="resetOnWrong" type="checkbox" />
+        答错后重置连对计数
+      </label>
+      <label class="label inline" for="showCountdown">
+        <input id="showCountdown" type="checkbox" />
+        显示网页倒计时悬浮条
+      </label>
+
+      <div class="row">
+        <button id="saveBtn" class="primary" type="button">保存参数</button>
+        <button id="resetBtn" type="button">重置计时</button>
+      </div>
+
+      <div class="row">
+        <button id="statsBtn" type="button">统计页</button>
+        <button id="optionsBtn" type="button">更多设置</button>
+      </div>
+
+      <p id="status" class="status"></p>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>
