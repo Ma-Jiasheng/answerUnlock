@@ -51,11 +51,11 @@ async function load() {
   });
   if (books.length === 0) {
     const option = document.createElement("option");
-    option.value = "built_in";
-    option.textContent = "内置词书（演示）";
+    option.value = "ieltsluan_2";
+    option.textContent = "雅思词汇 IELTSluan_2";
     selectedBookInput.appendChild(option);
   }
-  selectedBookInput.value = selectedBookId || selectedBookInput.options[0]?.value || "built_in";
+  selectedBookInput.value = selectedBookId || selectedBookInput.options[0]?.value || "ieltsluan_2";
 }
 
 async function save() {

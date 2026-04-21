@@ -5,90 +5,171 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Word Unlock 设置</title>
     <style>
+      * {
+        box-sizing: border-box;
+      }
       body {
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC",
           "Microsoft YaHei", sans-serif;
-        margin: 24px;
+        margin: 0;
+        min-height: 100vh;
+        padding: 36px 20px;
+        background:
+          radial-gradient(circle at 12% 10%, rgba(56, 189, 248, 0.16), transparent 35%),
+          radial-gradient(circle at 88% 0, rgba(251, 146, 60, 0.15), transparent 38%),
+          #f8fafc;
         color: #0f172a;
       }
-      .row {
+      .page {
+        width: min(760px, 100%);
+        margin: 0 auto;
+      }
+      .panel {
+        border: 1px solid #e2e8f0;
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.94);
+        box-shadow: 0 16px 50px rgba(15, 23, 42, 0.08);
+        padding: 24px;
+      }
+      h2 {
+        margin: 0;
+        font-size: 24px;
+      }
+      .subtitle {
+        margin: 8px 0 20px;
+        color: #475569;
+      }
+      .section {
+        border: 1px solid #e2e8f0;
+        border-radius: 12px;
+        padding: 14px;
+        background: #ffffff;
         margin-bottom: 12px;
       }
-      input {
-        width: 120px;
-        padding: 8px;
-        font-size: 15px;
+      .section-title {
+        margin: 0 0 10px;
+        font-size: 14px;
+        color: #334155;
+        font-weight: 600;
       }
-      select {
-        width: 260px;
+      .row {
+        margin-bottom: 10px;
+      }
+      input[type="number"],
+      select,
+      textarea {
+        width: 100%;
+        border: 1px solid #cbd5e1;
+        border-radius: 10px;
         padding: 8px;
-        font-size: 15px;
+        font-size: 14px;
+        background: #f8fafc;
+      }
+      input[type="number"] {
+        max-width: 220px;
       }
       textarea {
-        width: 420px;
         min-height: 110px;
-        padding: 8px;
+        resize: vertical;
+      }
+      .inline-checkbox {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 0;
         font-size: 14px;
       }
       button {
-        padding: 8px 12px;
+        border: 1px solid #cbd5e1;
+        background: #fff;
+        border-radius: 10px;
+        padding: 9px 12px;
+        cursor: pointer;
+      }
+      button.primary {
+        background: #2563eb;
+        color: #fff;
+        border-color: #2563eb;
+      }
+      .actions {
+        display: flex;
+        gap: 10px;
+        margin-top: 4px;
       }
       #status {
-        margin-top: 10px;
+        margin-top: 12px;
         color: #15803d;
+        min-height: 20px;
       }
     </style>
   </head>
   <body>
-    <h2>Word Unlock 设置</h2>
-    <p>当累计活跃使用达到设定分钟数后，会弹出答题页。</p>
-    <div class="row">
-      <label for="limitMinutes">触发时长（分钟）</label>
-    </div>
-    <div class="row">
-      <input id="limitMinutes" type="number" min="1" step="1" />
-    </div>
-    <div class="row">
-      <label for="requiredStreak">解锁需连续答对（N）</label>
-    </div>
-    <div class="row">
-      <input id="requiredStreak" type="number" min="1" step="1" />
-    </div>
-    <div class="row">
-      <label for="selectedBook">词书</label>
-    </div>
-    <div class="row">
-      <select id="selectedBook"></select>
-    </div>
-    <div class="row">
-      <label for="enabledSites">生效网站（每行一个域名，如 douyin.com）</label>
-    </div>
-    <div class="row">
-      <textarea id="enabledSites" placeholder="留空表示所有网站生效"></textarea>
-    </div>
-    <div class="row">
-      <label for="pluginEnabled">
-        <input id="pluginEnabled" type="checkbox" />
-        启用插件功能
-      </label>
-    </div>
-    <div class="row">
-      <label for="resetOnWrong">
-        <input id="resetOnWrong" type="checkbox" />
-        答错后重置连对计数
-      </label>
-    </div>
-    <div class="row">
-      <label for="showCountdown">
-        <input id="showCountdown" type="checkbox" />
-        显示网页倒计时悬浮条
-      </label>
-    </div>
-    <div class="row">
-      <button id="saveBtn" type="button">保存设置</button>
-      <button id="openStatsBtn" type="button">打开统计页面</button>
-    </div>
-    <p id="status"></p>
+    <main class="page">
+      <section class="panel">
+        <h2>Answer Unlock 设置</h2>
+        <p class="subtitle">配置插件生效范围、学习挑战强度和页面展示行为。</p>
+
+        <section class="section">
+          <p class="section-title">挑战参数</p>
+          <div class="row">
+            <label for="limitMinutes">触发时长（分钟）</label>
+          </div>
+          <div class="row">
+            <input id="limitMinutes" type="number" min="1" step="1" />
+          </div>
+          <div class="row">
+            <label for="requiredStreak">解锁需连续答对（N）</label>
+          </div>
+          <div class="row">
+            <input id="requiredStreak" type="number" min="1" step="1" />
+          </div>
+          <div class="row">
+            <label for="selectedBook">词书</label>
+          </div>
+          <div class="row">
+            <select id="selectedBook"></select>
+          </div>
+        </section>
+
+        <section class="section">
+          <p class="section-title">生效站点</p>
+          <div class="row">
+            <label for="enabledSites">生效网站（每行一个域名，如 `douyin.com`）</label>
+          </div>
+          <div class="row">
+            <textarea id="enabledSites" placeholder="留空表示所有网站生效"></textarea>
+          </div>
+        </section>
+
+        <section class="section">
+          <p class="section-title">行为开关</p>
+          <div class="row">
+            <label class="inline-checkbox" for="pluginEnabled">
+              <input id="pluginEnabled" type="checkbox" />
+              启用插件功能
+            </label>
+          </div>
+          <div class="row">
+            <label class="inline-checkbox" for="resetOnWrong">
+              <input id="resetOnWrong" type="checkbox" />
+              答错后重置连对计数
+            </label>
+          </div>
+          <div class="row">
+            <label class="inline-checkbox" for="showCountdown">
+              <input id="showCountdown" type="checkbox" />
+              显示网页倒计时悬浮条
+            </label>
+          </div>
+        </section>
+
+        <div class="actions">
+          <button id="saveBtn" class="primary" type="button">保存设置</button>
+          <button id="openStatsBtn" type="button">打开统计页面</button>
+        </div>
+        <p id="status"></p>
+      </section>
+    </main>
     <script src="options.js"></script>
   </body>
 </html>

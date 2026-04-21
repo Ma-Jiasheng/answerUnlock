@@ -2,7 +2,7 @@ const TICK_ALARM = "usage-tick";
 const DEFAULT_LIMIT_MINUTES = 30;
 const DEFAULT_REQUIRED_STREAK = 3;
 const DEFAULT_PLUGIN_ENABLED = true;
-const DEFAULT_SELECTED_BOOK_ID = "built_in";
+const DEFAULT_SELECTED_BOOK_ID = "ieltsluan_2";
 const DEFAULT_RESET_ON_WRONG = true;
 const DEFAULT_SHOW_COUNTDOWN = true;
 const DEFAULT_ENABLED_SITES = [];
@@ -25,7 +25,6 @@ const WORD_BANK = [
 ];
 
 const BOOK_CATALOG = [
-  { id: "built_in", name: "内置词书（演示）", file: null },
   { id: "ieltsluan_2", name: "雅思词汇 IELTSluan_2", file: "IELTSluan_2.simple.json" }
 ];
 
@@ -59,7 +58,7 @@ async function loadBookWords(bookId) {
       return normalized;
     }
   } catch (error) {
-    console.warn("load book failed, fallback built-in", bookMeta.id, error);
+    console.warn("load book failed, fallback internal bank", bookMeta.id, error);
   }
   return WORD_BANK.map((item) => ({ en: item.en, zh: item.zh }));
 }

@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "Word Unlock MVP",
-  "description": "达到浏览时长后，答对单词翻译才能继续浏览。",
+  "name": "Answer Unlock",
+  "description": "达到浏览时长后，答对单词翻译才能继续浏览网页。",
   "version": "0.1.0",
   "permissions": [
     "alarms",
@@ -26,9 +26,20 @@
       "run_at": "document_idle"
     }
   ],
+  "icons": {
+    "16": "image.png",
+    "32": "image.png",
+    "48": "image.png",
+    "128": "image.png"
+  },
   "options_page": "options.html",
   "action": {
     "default_title": "Word Unlock",
-    "default_popup": "popup.html"
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "image.png",
+      "32": "image.png",
+      "48": "image.png"
+    }
   }
 }
